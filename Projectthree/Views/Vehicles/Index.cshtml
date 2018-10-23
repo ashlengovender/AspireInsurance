@@ -1,0 +1,152 @@
+﻿@model IEnumerable<Projectthree.Models.Vehicle>
+
+@{
+    ViewBag.Title = "VEHICLE";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <body2 style="text-align:center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div style="background-color:lightgray">
+            <br />
+            <br />
+            <br />
+            <b style="color: darkred; font-size:550%;">VEHICLE POLICIES </b>
+            <br />
+            <br />
+            <br />
+        </div>
+        <h3></h3>
+        <h3>_____________________________________________________________________________________</h3>
+    </body2>
+</div>
+
+        @Html.ActionLink("Create New", "Create")
+   
+    <table class="table"; style="margin-left:-10%">
+
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDriverName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDLicenceNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDriverName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDLicenceNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VinNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.party3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Compre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engineplan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.writeoff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pricex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PDriverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PDLicenceNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDriverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDLicenceNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VinNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.party3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Compre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Engineplan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.writeoff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pricex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PolicyID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PolicyID })
+
+            </td>
+        </tr>
+        }
+
+    </table>

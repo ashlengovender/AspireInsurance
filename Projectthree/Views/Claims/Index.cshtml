@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Projectthree.Models.Claim>
+
+@{
+    ViewBag.Title = "CLAIM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <body2 style="text-align:center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div style="background-color:lightgray;  ">
+            @* background-size:contain ;background-image:url(../../Content/crash.jpg);width:100%;height:100%; background-repeat:no-repeat;*@
+            <br />
+            <br />
+            <br />
+            <b style="color: darkred; font-size:550%;">FILE CLAIM </b>
+            <br />
+            <br />
+            <br />
+        </div>
+        <h3></h3>
+        <h3>_____________________________________________________________________________________</h3>
+    </body2>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReportNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClaimPolicyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DamageDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReportNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClaimPolicyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DamageDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ReportNum }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ReportNum }) 
+           
+        </td>
+    </tr>
+}
+
+</table>

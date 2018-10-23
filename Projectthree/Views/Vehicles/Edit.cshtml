@@ -1,0 +1,302 @@
+﻿@model Projectthree.Models.Vehicle
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Vehicle</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PolicyID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PolicyID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PolicyID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PolicyID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CustID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CustID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CustID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PDriverName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PDriverName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PDriverName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PDLicenceNum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PDLicenceNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PDLicenceNum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SDriverName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SDriverName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SDriverName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SDLicenceNum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SDLicenceNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SDLicenceNum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Make, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*   @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } }) *@
+
+            @Html.DropDownListFor(model=>model.Make,
+          new SelectListItem[]
+          {
+
+              new SelectListItem() { Text="Audi", Value="Audi"},
+              new SelectListItem() { Text="BMW", Value="BMW"},
+              new SelectListItem() { Text="Ford", Value="Ford"},
+              new SelectListItem() { Text="Honda", Value="Honda"},
+              new SelectListItem() { Text="Nissan", Value="Nissan"},
+              new SelectListItem() { Text="Toyota", Value="Toyota"},
+              new SelectListItem() { Text="Volkswagen", Value="Volkswagen"}
+          }, "**SELECT MAKE**")
+
+
+
+
+            @Html.ValidationMessageFor(model => model.Make, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*   @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } }) *@
+
+            @Html.DropDownListFor(model => model.Model,
+   new SelectListItem[]
+   {
+
+
+
+              new SelectListItem() { Text="Audi R8", Value="Audi R8"},
+              new SelectListItem() { Text="Audi S3", Value="Audi S3"},
+
+              new SelectListItem() { Text="Audi RS3", Value="Audi RS3"},
+
+              new SelectListItem() { Text="Audi RS6", Value="Audi RS6"},
+
+              new SelectListItem() { Text="BMW 320i", Value="BMW 320i"},
+              new SelectListItem() { Text="BMW 321", Value="BMW 321"},
+              new SelectListItem() { Text="BMW M1", Value="BMW M1"},
+              new SelectListItem() { Text="BMW M2", Value="BMW M2"},
+              new SelectListItem() { Text="BMW M3", Value="BMW M3"},
+
+              new SelectListItem() { Text="Ford Focus", Value="Ford Focus"},
+              new SelectListItem() { Text="Ford Mondeo Fusion", Value="Ford Mondeo Fusion"},
+              new SelectListItem() { Text="Ford Fiesta ST", Value="Ford Fiesta ST"},
+              new SelectListItem() { Text="Ford Focus RS", Value="Ford Focus RS"},
+              new SelectListItem() { Text="Ford GT", Value="Ford GT"},
+              new SelectListItem() { Text="Ford Mustang", Value="Ford Mustang"},
+
+              new SelectListItem() { Text="Honda Civic", Value="Honda Civic"},
+              new SelectListItem() { Text="Honda CR-V", Value="Honda CR-V"},
+              new SelectListItem() { Text="Honda CR-Z", Value="Honda CR-Z"},
+              new SelectListItem() { Text="Honda FR-V", Value="Honda FR-V"},
+              new SelectListItem() { Text="Honda Jazz", Value="Honda Jazz"},
+              new SelectListItem() { Text="Honda NSX", Value="Honda NSX"},
+              new SelectListItem() { Text="Honda WR-V", Value="Honda WR-V"},
+
+
+              new SelectListItem() { Text="Nissan GTR R32", Value="Nissan GTR R32"},
+              new SelectListItem() { Text="Nissan GTR R33", Value="Nissan GTR R33"},
+              new SelectListItem() { Text="Nissan GTR R34", Value="Nissan GTR R34"},
+              new SelectListItem() { Text="Nissan GTR R35", Value="Nissan GTR R35"},
+              new SelectListItem() { Text="Toyota Crown", Value="Toyota Crown"},
+              new SelectListItem() { Text="Toyota Camry", Value="Toyota Camry"},
+              new SelectListItem() { Text="Toyota Corolla Axio", Value="Toyota Corolla Axio"},
+              new SelectListItem() { Text="Toyota 86", Value="Toyota 86"},
+              new SelectListItem() { Text="Toyota Hilux", Value="Toyota Hilux"},
+              new SelectListItem() { Text="Toyota Auris", Value="Toyota Auris"},
+              new SelectListItem() { Text="Volkswagen Golf Mk1", Value="Volkswagen Golf Mk1"},
+              new SelectListItem() { Text="Volkswagen Golf Mk2", Value="Volkswagen Golf Mk2"},
+              new SelectListItem() { Text="Volkswagen Golf Mk3", Value="Volkswagen Golf Mk3"},
+              new SelectListItem() { Text="Volkswagen Jetta A1", Value="Volkswagen Jetta A1"},
+              new SelectListItem() { Text="Volkswagen Jetta A2", Value="Volkswagen Jetta A2"},
+              new SelectListItem() { Text="Volkswagen Scirocco III", Value="Volkswagen Scirocco III"},
+              new SelectListItem() { Text="Volkswagen Golf Mk7", Value="Volkswagen Golf Mk7"},
+              new SelectListItem() { Text="Volkswagen Beetle A5", Value="Volkswagen Beetle A5"},
+              new SelectListItem() { Text="Volkswagen Tiguan", Value="Volkswagen Tiguan"}
+
+          }, "**SELECT MAKE**")
+
+
+
+
+            @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.year, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*   @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } }) *@
+
+            @Html.DropDownListFor(model=>model.year,
+          new SelectListItem[]
+          {
+
+              new SelectListItem() { Text="1993", Value="1993"},
+              new SelectListItem() { Text="1994", Value="1994"},
+              new SelectListItem() { Text="1995", Value="1995"},
+              new SelectListItem() { Text="1996", Value="1996"},
+              new SelectListItem() { Text="1997", Value="1997"},
+              new SelectListItem() { Text="1998", Value="1998"},
+               new SelectListItem() { Text="1999", Value="1999"},
+              new SelectListItem() { Text="2000", Value="2000"},
+              new SelectListItem() { Text="2001", Value="2001"},
+              new SelectListItem() { Text="2002", Value="2002"},
+              new SelectListItem() { Text="2003", Value="2003"},
+              new SelectListItem() { Text="2004", Value="2004"},
+              new SelectListItem() { Text="2005", Value="2005"},
+              new SelectListItem() { Text="2006", Value="2006"},
+              new SelectListItem() { Text="2007", Value="2007"},
+              new SelectListItem() { Text="2008", Value="2008"},
+              new SelectListItem() { Text="2009", Value="2009"},
+              new SelectListItem() { Text="2010", Value="2010"},
+              new SelectListItem() { Text="2011", Value="2011"},
+              new SelectListItem() { Text="2012", Value="2013"},
+              new SelectListItem() { Text="2013", Value="2013"},
+              new SelectListItem() { Text="2014", Value="2014"},
+              new SelectListItem() { Text="2015", Value="2015"},
+              new SelectListItem() { Text="2016", Value="2016"},
+               new SelectListItem() { Text="2017", Value="2017"},
+                new SelectListItem() { Text="2018", Value="2018"},
+              new SelectListItem() { Text="2019", Value="2019"}
+          }, "**SELECT YEAR**")
+
+
+
+
+            @Html.ValidationMessageFor(model => model.year, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RegNum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RegNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RegNum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.VinNum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.VinNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VinNum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.party3, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.party3)
+                @Html.ValidationMessageFor(model => model.party3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Compre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Compre)
+                @Html.ValidationMessageFor(model => model.Compre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Engineplan, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Engineplan)
+                @Html.ValidationMessageFor(model => model.Engineplan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.writeoff, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.writeoff)
+                @Html.ValidationMessageFor(model => model.writeoff, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*   @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } }) *@
+
+            @Html.DropDownListFor(model=>model.Status,
+          new SelectListItem[]
+          {
+
+              new SelectListItem() { Text="Available", Value="Available"},
+              new SelectListItem() { Text="Unavailable", Value="Unavailable"},
+
+          }, "**SELECT STATUS**")
+
+
+
+
+            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

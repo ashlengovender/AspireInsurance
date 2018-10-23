@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Projectthree.Models.Customer>
+   
+
+@{
+    ViewBag.Title = "CUSTOMER";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <body2 style="text-align:center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div style="background-color:lightgray">
+            <br />
+            <br />
+            <br />
+            <b style="color: darkred; font-size:550%;">CUSTOMER RECORD </b>
+            <br />
+            <br />
+            <br />
+        </div>
+        <h3></h3>
+        <h3>_____________________________________________________________________________________</h3>
+    </body2>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+
+    @using (Html.BeginForm("Index","Customers",FormMethod.Get))
+    {
+        <b> Search By:</b>
+        @Html.RadioButton("searchBy", "FirstName", true) <text>Name</text>
+        @Html.RadioButton("searchBy", "Status") <text>Status</text> <br />
+@Html.TextBox("search") <input type="submit" value="Search" />
+}
+</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CellNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="8">
+                No Rows Match Search Criteria
+
+            </td>
+
+        </tr>
+
+    }
+
+    else
+    {
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CellNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomeNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CustID }) |
+
+                    @Html.ActionLink("Details", "Details", new { id = item.CustID })
+
+                    @*  @Html.ActionLink("Delete", "Delete", new { id = item.CustID })*@
+
+
+
+
+
+
+
+
+
+
+
+                </td>
+            </tr>
+        }
+    }
+
+</table>
